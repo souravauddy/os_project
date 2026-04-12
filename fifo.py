@@ -11,7 +11,7 @@ class FIFO(ReplacementAlgorithm, SupportsRequestSequence):
     """Implements the FIFO replacement algorithm.
 
     - Uses collections.deque as the queue, along with a set to keep track of the available pages.
-    - Every operation works in constant time, except for request sequence which requires O(sequence length) time.   
+    - Every operation works in O(1) constant time, except for request sequence which requires O(sequence length) time.   
 
     Args:
         max_pages (int): Takes the maximum number of pages.
@@ -26,7 +26,6 @@ class FIFO(ReplacementAlgorithm, SupportsRequestSequence):
 
     def request(self, page: int) -> None:
         """Request a page from the available pages.
-        - If all the pages are not allocated then it is inserted otherwise a victim is selected using on FIFO basis.
 
         Args:
             page (int): The requested page.
@@ -48,7 +47,7 @@ class FIFO(ReplacementAlgorithm, SupportsRequestSequence):
         self._pages.append(page)
 
     def request_sequence(self, pages: Iterable[int]) -> None:
-        """Request a sequence of pages.
+        """Request a sequence of pages from the available pages.
 
         Args:
             pages (Iterable[int]): sequence of pages.
