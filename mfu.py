@@ -9,7 +9,8 @@ from typing import (
 
 class MFU(ReplacementAlgorithm, SupportsRequestSequence):
     """Implementation of the Most Frequenly Used page replacement algorithm.
-    Always create a new instance if you want to reset. All of the page faults will be accumulated.
+    - Always create a new instance if you want to reset.
+    - All of the page faults will be accumulated.
 
     Args:
         max_pages (int): maximum number of pages that has been allocated.

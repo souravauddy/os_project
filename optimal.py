@@ -11,9 +11,10 @@ from typing import (
 
 class Optimal(SupportsRequestSequence):
     """Implementation of the Optimal Algorithm for the page replacement.
-    When, a new request sequence has to be given the reinitialize method has to be called first or create a new instance.
-    The reinitialize method is only a method available in the optimal algorithm.
-    It is so because the algorithm works only for a sequence, the other algorithms both work on sequence as well as single page requests.
+    - When, a new request sequence has to be given the reinitialize method has to be called first or create a new instance should be created.
+    - The reinitialize method is only a method available in the optimal algorithm because the algorithm works only for a sequence.
+    - The remainder algorithms both work on sequence as well as single page requests.
+    - Time complexity is: O(max frames * sequence length), but could be reduced to O(log(max frames) * sequence length) using a binary heap.
 
     Args:
         max_pages (int): Takes the number of pages allocated to the process.

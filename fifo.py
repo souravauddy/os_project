@@ -10,6 +10,9 @@ from typing import (
 class FIFO(ReplacementAlgorithm, SupportsRequestSequence):
     """Implements the FIFO replacement algorithm.
 
+    - Uses collections.deque as the queue, along with a set to keep track of the available pages.
+    - Every operation works in constant time, except for request sequence which requires O(sequence length) time.   
+
     Args:
         max_pages (int): Takes the maximum number of pages.
     """
@@ -22,8 +25,8 @@ class FIFO(ReplacementAlgorithm, SupportsRequestSequence):
         self._count_page_faults = 0
 
     def request(self, page: int) -> None:
-        """Request a page from the available pages and increases the count of the page fault is the page is not present.
-        If all the pages are not allocated then it is inserted otherwise a victim is selected using the FIFO basis.
+        """Request a page from the available pages.
+        - If all the pages are not allocated then it is inserted otherwise a victim is selected using on FIFO basis.
 
         Args:
             page (int): The requested page.

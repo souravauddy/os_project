@@ -8,6 +8,20 @@ from typing import (
 
 
 class Node[T]:
+    """
+    A generic node, can be used for double linked lists or binary trees.
+
+    Equivalent to:
+
+    ```python
+    @dataclasses.dataclass(slots=True, repr=True, init=True)
+    class Node[T]:
+        value: T
+        left: Node[T] | None = None
+        right: Node[T] | None = None
+    ```
+    """
+
     __slots__ = ("value", "left", "right")
 
     def __init__(self, value: T, left: Node[T] | None = None, right: Node[T] | None = None) -> None:
@@ -19,20 +33,14 @@ class Node[T]:
         return f"Node(value={self.value!r})"
 
 
-import dataclasses
-
-@dataclasses.dataclass(slots=True, repr=True, init=True)
-class Node[T]:
-    value: T
-    left: Node[T] | None = None
-    right: Node[T] | None = None
-
-
 class LRU(ReplacementAlgorithm, SupportsRequestSequence):
     """Implementation of the LRU page replacement algorithm.
-    Uses the doubly linked list and hashmap implementation of the LRU cache.
-    It takes in the number of pages as input.
-    All the methods work in O(1) time.
+
+    - Uses the doubly linked list and hashmap implementation of the LRU cache.
+    - It takes in the number of pages as input.
+    - All the methods work in O(1) time.
+
+    ⚠️ Note:
     This class cannot be reinitialzed unlike the optimal algorithm immplementation always create a new instance.
 
     Args:
