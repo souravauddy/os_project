@@ -1,5 +1,5 @@
 from __future__ import annotations
-from base import SupportsRequestSequence, ReplacementAlgorithm
+from .base import SupportsRequestSequence, ReplacementAlgorithm
 from collections.abc import Iterable
 from typing import (
     Generator,

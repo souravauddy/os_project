@@ -1,7 +1,7 @@
 from __future__ import annotations
 import collections
 from collections import deque
-from base import SupportsRequestSequence
+from .base import SupportsRequestSequence
 from collections.abc import Iterable
 from typing import (
     Final,

@@ -1,7 +1,7 @@
 from __future__ import annotations
 import collections
 from collections.abc import Iterable
-from base import ReplacementAlgorithm, SupportsRequestSequence
+from .base import ReplacementAlgorithm, SupportsRequestSequence
 from typing import (
     Generator,
 )

@@ -1,5 +1,5 @@
 from __future__ import annotations
-from base import ReplacementAlgorithm, SupportsRequestSequence
+from .base import ReplacementAlgorithm, SupportsRequestSequence
 from collections import deque
 from collections.abc import Iterable
 from typing import (
